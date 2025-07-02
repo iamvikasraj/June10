@@ -24,22 +24,21 @@ struct ContentView: View {
                 .animation(.easeInOut(duration: 0.3), value: isEditing)
                 .animation(.easeInOut(duration: 0.5), value: speed)
            
-            Slider( value: $speed, in: 0...100, step: 1,
+            Slider( value: $speed, in: 0...99, step: 1,
                 onEditingChanged: { editing in
-                    withAnimation(.easeInOut(duration: 0.3)) {
+                    withAnimation(.easeInOut(duration: 0.025)) {
                         isEditing = editing
                     }
                 }
             )
             .padding(.horizontal)
             .frame(width: 220)
-            .opacity(isEditing ? 1 : 0.8)
+            .opacity(isEditing ? 1 : 0.9)
             .animation(.easeInOut(duration: 0.3), value: isEditing)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color(red: 203/255, green: 203/255, blue: 205/255))
-    }
-       
+    }       
 }
 
 #Preview {
