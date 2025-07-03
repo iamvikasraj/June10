@@ -11,7 +11,7 @@ import SwiftUI
 struct June10App: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            GlassButton()
         }
     }
 }
