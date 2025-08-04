@@ -15,11 +15,11 @@ struct ContentView: View {
         VStack(spacing: 24) {
             
             Text("\(Int(speed))")
-                .font(.system(size: 180))
+                .font(.system(size: 100).smallCaps())
                 .fontDesign(.monospaced)
-                .fontWeight(.bold)
-                .contentTransition(.numericText(value: speed))
-                .blur(radius: isEditing ? 2 : 0)
+                .fontWeight(.light)
+                .contentTransition(.numericText())
+                .blur(radius: isEditing ? 1 : 0)
                 .scaleEffect(isEditing ? 1.1 : 1.0)
                 .animation(.easeInOut(duration: 0.3), value: isEditing)
                 .animation(.easeInOut(duration: 0.5), value: speed)
@@ -32,13 +32,14 @@ struct ContentView: View {
                 }
             )
             .padding(.horizontal)
-            .frame(width: 220)
+            .focusable(false)
+            .frame(width: 120)
             .opacity(isEditing ? 1 : 0.9)
-            .animation(.easeInOut(duration: 0.3), value: isEditing)
+            .animation(.spring(duration: 0.3), value: isEditing)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color(red: 203/255, green: 203/255, blue: 205/255))
-    }       
+    }
 }
 
 #Preview {
